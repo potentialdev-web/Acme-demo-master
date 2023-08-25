@@ -1,0 +1,290 @@
+@import './variables.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+html {
+  background-color: $background-html;
+}
+
+body {
+  overflow-y: hidden;
+}
+
+a, span, option, input, select, button, p, h1, h2, h3, h4, h5 {
+  font-family: Roboto, sans-serif;
+  color: $primary-color;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  width: 100%;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap');
+
+@font-face {
+  font-family: 'Roboto', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap');
+}
+
+select, button {
+  height: 45px;
+  border-radius: 7px;
+  border: 1px solid $border-nav;
+  font-size: 16px;
+  padding: 0 14px;
+}
+
+.App {
+  display: flex;
+  flex-direction: row;
+
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+
+  .list-layout {
+    background-color: $background-nav;
+    border-right: 1px solid $border-nav;
+    width: 400px;
+
+    .top-bar {
+      padding: 10px 27px;
+      border-bottom: 1px solid $border-nav;
+
+      .top-bar-line {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin: 12px 0;
+
+        .search-box {
+          display: flex;
+          align-items: center;
+          border: 1px solid $border-nav;
+          margin-right: 20px;
+          width: 100%;
+          height: 45px;
+          border-radius: 7px;
+          padding: 0 15px;
+
+          img {
+            width: 17px;
+            height: 17px;
+            margin-right: 12px;
+          }
+
+          input {
+            font-size: 16px;
+            border: transparent;
+            background-color: transparent;
+          }
+        }
+
+        .select-categories{
+          font-size: 13px;
+          background: transparent;
+          border: 1px solid $border-nav;
+          border-radius: 7px;
+          overflow: hidden;
+          position: relative;
+          height: 45px;
+          width: 100%;
+          margin-right: 20px;
+
+          & .select-box{
+            display: flex;
+            align-items: center;
+
+            select{
+              background: transparent;
+              border: 0;
+              padding: 0;
+              border-radius: 0;
+              width: 100%;
+              overflow-x: hidden;
+              position: relative;
+              z-index: 10;
+              font-size: 16px;
+              padding: 0 15px;
+            }
+
+            img {
+              position: absolute;
+              right: 4px;
+              z-index: 12;
+              height: 10px
+            }
+          }
+        }
+
+        .button-follow-up {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: transparent;
+          border: 3px solid $button-follow-up;
+          color: $button-follow-up;
+          width: 155px;
+          text-align: center;
+          text-decoration: none;
+          margin-right: 0;
+          padding: 0 5px;
+          cursor: pointer;
+        }
+
+        .add-conversation-button {
+          height: 45px;
+        }
+      }
+    }
+
+    .nav-bar {
+      height: calc(100vh - 151px);
+    }
+
+    a.list-item-button {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      text-decoration: none;
+      align-items: center;
+
+      &:hover {
+        background-color: $hover-color;
+      }
+
+      .list-item-avatar {
+        padding-left: 20px;
+        padding-right: 12px;
+
+        span {
+          height: 65px;
+          width: 65px;
+          background-color: $list-item-avatar;
+          border-radius: 50%;
+          display: inline-block;
+        }
+      }
+
+      .list-item-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        padding-right: 20px;
+        padding-top: 17px;
+        padding-bottom: 17px;
+        border-bottom: 1px solid $border-nav;
+
+        .list-item-sub {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+
+          .list-item-title {
+            font-weight: 800;
+            font-size: 18px;
+          }
+
+          .list-item-info {
+            font-weight: 100;
+            color: $secondary-color;
+            margin-top: 7px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* number of lines to show */
+            -webkit-box-orient: vertical;
+          }
+
+          .list-item-time-star {
+            display: flex;
+            flex-direction: column;
+            width: 20px;
+            height: 22px;
+
+            &:hover {
+              background-image: url(../img/star-empty-hover.png);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .main-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    width: calc(100vw - 400px);
+
+    .index-view {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+
+      .index-info {
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+
+        h3 {
+          margin-top: 10px;
+        }
+      }
+    }
+
+    .main-view {
+      width: calc(100vw - 400px);
+      height: 100%;
+      
+      .conversation-content {
+        display: flex;
+        justify-content: flex-end;
+        padding: 30px 50px;
+
+        p {
+          padding: 15px;
+          border-radius: 12px;
+          background-color: $list-item-avatar;
+          display: inline-block;
+        }
+      }
+      .conversation-send {
+        position: fixed;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        bottom: 0;
+        padding: 20px 20px;
+        width: calc(100vw - 400px);
+
+        input {
+          width: 100%;
+          border: 1px solid $border-nav;
+          margin-right: 20px;
+          height: 45px;
+          border-radius: 7px;
+          padding: 0 15px;
+        }
+      }
+    }
+  }
+}
